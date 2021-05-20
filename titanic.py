@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 import re
+from datetime import datetime
 
 
 if __name__ == "__main__":
@@ -87,6 +88,7 @@ if __name__ == "__main__":
 
     test_data["Survived"] = titanic_LogReg.predict(test_x)
 
+    name_str = f"titanic_{str(datetime.now()).replace(' ','_')}.csv"
     file = open("titanic_1.csv", "w")
     file.writelines(f"PassengerId,Survived\n")
     for i in range(len(test_data)):
